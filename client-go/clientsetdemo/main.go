@@ -89,7 +89,7 @@ func createNameSpace(clientset *kubernetes.Clientset) {
 		panic(err)
 	}
 
-	fmt.Printf("created a namespace: %s", result.GetName())
+	fmt.Printf("created a namespace: %s\n", result.GetName())
 }
 
 func createDeployment(clientset *kubernetes.Clientset) {
@@ -136,7 +136,7 @@ func createDeployment(clientset *kubernetes.Clientset) {
 		panic(err)
 	}
 
-	fmt.Printf("created a deployment: %s", result.GetName())
+	fmt.Printf("created a deployment: %s\n", result.GetName())
 }
 
 func createService(clientset *kubernetes.Clientset) {
