@@ -1,0 +1,43 @@
+{{ define "index/index.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+
+<form>
+    <input type="text" id="username"><br>
+    <input type="password" id="password"><br>
+    <input type="button" value="提交", id="add_btn">
+</form>
+
+<script>
+    let btn_add = document.getElementById("add_btn");
+    btn_add.onclick = function (ev) {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        $.ajax({
+            url:"/do_add",
+            type:"POST",
+            data:{
+                "username":username,
+                "password":password
+            },
+            success:function (data) {
+                alert(data["code"]);
+                alert(data["msg"]);
+            },
+            fail:function (data) {
+
+            }
+        })
+
+    }
+</script>
+</body>
+</html>
+{{end}}
